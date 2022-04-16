@@ -30,12 +30,6 @@ waitForSelector(TIMER_CLASS).then(timer => setInterval(() => {
   const minutes = String(Math.floor((timeElapsed % (1000 * 60 * 60)) / (1000 * 60)))
   const seconds = String(Math.floor((timeElapsed % (1000 * 60)) / 1000)).padStart(2, '0')
 
-  // Result is output to the specific element
-  // document.getElementById('mins').innerHTML = minutes + 'm '
-  // document.getElementById('secs').innerHTML =  + 's '
-
-  // const timer = await waitForSelector(TIMER_CLASS)
-  // console.log('🚀 ~ file: timer.js ~ line 20 ~ setInterval ~ timer', timer)
   timer.innerHTML = `${minutes}:${seconds}`
 }, 1000))
 
@@ -64,9 +58,7 @@ const characterListObserverCallback = async (mutationsList) => {
     if (previouslyFirstInTurnOrder !== firstInTurnOrder) {
       console.log('roll20-made-easlier detected a new turn')
       previouslyFirstInTurnOrder = firstInTurnOrder
-      console.log('1')
       startTime = new Date().getTime()
-      console.log('2')
     }
   })
 }

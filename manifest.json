@@ -1,25 +1,18 @@
 {
   "name": "roll20-made-easlier",
   "description": "(Indev) General tools for roll 20, in one browser plugin",
-  "version": "1.0",
+  "version": "1.0.0",
   "manifest_version": 3,
-  "permissions": [
-    "storage",
-    "activeTab",
-    "scripting",
+    "host_permissions": [
     "*://app.roll20.net/editor/"
   ],
-    "icons": {
+  "icons": {
     "16": "/icons/easlier16.png",
     "32": "/icons/easlier32.png",
     "48": "/icons/easlier48.png",
     "128": "/icons/easlier128.png"
   },
-  "background": {
-    "service_worker": "background.js"
-  },
   "action": {
-    "default_popup": "popup.html",
     "default_icon": {
       "16": "/icons/easlier16.png",
       "32": "/icons/easlier32.png",
@@ -27,14 +20,13 @@
       "128": "/icons/easlier128.png"
     }
   },
-  "options_page": "options.html",
   "content_scripts": [
     {
 			"matches": [
 				"*://app.roll20.net/editor/"
 			],
 			"js": [
-				"timer.js"
+				"src/turn-timer/index.js"
 			]
 		}
   ]
