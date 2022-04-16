@@ -3,12 +3,17 @@
   "description": "(Indev) General tools for roll 20, in one browser plugin",
   "version": "1.0",
   "manifest_version": 3,
-  "permissions": ["storage", "activeTab", "scripting"],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "*://app.roll20.net/editor/"
+  ],
     "icons": {
-    "16": "/images/get_started16.png",
-    "32": "/images/get_started32.png",
-    "48": "/images/get_started48.png",
-    "128": "/images/get_started128.png"
+    "16": "/icons/easlier16.png",
+    "32": "/icons/easlier32.png",
+    "48": "/icons/easlier48.png",
+    "128": "/icons/easlier128.png"
   },
   "background": {
     "service_worker": "background.js"
@@ -16,13 +21,23 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "/images/get_started16.png",
-      "32": "/images/get_started32.png",
-      "48": "/images/get_started48.png",
-      "128": "/images/get_started128.png"
+      "16": "/icons/easlier16.png",
+      "32": "/icons/easlier32.png",
+      "48": "/icons/easlier48.png",
+      "128": "/icons/easlier128.png"
     }
   },
-  "options_page": "options.html"
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+			"matches": [
+				"*://app.roll20.net/editor/"
+			],
+			"js": [
+				"timer.js"
+			]
+		}
+  ]
 } 
  
 
