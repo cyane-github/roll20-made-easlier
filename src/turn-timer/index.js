@@ -38,7 +38,7 @@ const addTimerToTurnOrder = async (initiativeWindow) => {
   timerElement.appendChild(timerTextNode)
   timerWrapperElement.appendChild(timerElement)
 
-  const turnOrderWindow = await waitForSelector('.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.initiativedialog.ui-draggable.ui-resizable.ui-dialog-buttons')
+  const turnOrderWindow = await waitForSelector('.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.initiativedialog.ui-draggable.ui-resizable')
   turnOrderWindow.insertBefore(timerWrapperElement, initiativeWindow)
 }
 
