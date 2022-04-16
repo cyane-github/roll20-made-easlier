@@ -71,4 +71,4 @@ waitForSelector(TIMER_CLASS).then(timer => setInterval(() => {
   const seconds = String(Math.floor((timeElapsed % (1000 * 60)) / 1000)).padStart(2, '0')
 
   timer.innerHTML = `${TIMER_PREFIX} ${minutes}:${seconds}`
-}, 1000))
+}, 500))
