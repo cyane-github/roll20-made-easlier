@@ -1,0 +1,38 @@
+{
+  "name": "roll20-made-easlier",
+  "version": "1.0.0",
+  "description": "General tools for roll 20, in one browser plugin",
+  "main": "manifest.json",
+  "scripts": {
+    "test": "echo \"test no written\"",
+    "lint": "eslint ."
+  },
+  "pre-commit": [
+    "lint"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cyane-github/roll20-made-easlier.git"
+  },
+  "keywords": [
+    "roll20",
+    "plugin",
+    "turn-timer",
+    "helper",
+    "tools"
+  ],
+  "author": "Cyane <cyane.email@protonmail.com> (https://github.com/cyane-github)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cyane-github/roll20-made-easlier/issues"
+  },
+  "homepage": "https://github.com/cyane-github/roll20-made-easlier",
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "pre-commit": "^1.2.2"
+  }
+}
