@@ -4,7 +4,6 @@
   "description": "General tools for roll 20, in one browser plugin",
   "main": "manifest.json",
   "scripts": {
-    "test": "echo \"test no written\"",
     "lint": "eslint ."
   },
   "pre-commit": [

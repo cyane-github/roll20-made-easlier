@@ -1,6 +1,8 @@
 const TIMER_CLASS_STRING = 'roll20-made-easlier-timer'
 const TIMER_CLASS = `.${TIMER_CLASS_STRING}`
 
+const TIMER_PREFIX = 'Turn Timer'
+
 let startTime = new Date().getTime()
 
 const waitForSelector = (selector) => {
@@ -23,16 +25,6 @@ const waitForSelector = (selector) => {
   })
 }
 
-waitForSelector(TIMER_CLASS).then(timer => setInterval(() => {
-  const now = new Date().getTime()
-  const timeElapsed = now - startTime
-
-  const minutes = String(Math.floor((timeElapsed % (1000 * 60 * 60)) / (1000 * 60)))
-  const seconds = String(Math.floor((timeElapsed % (1000 * 60)) / 1000)).padStart(2, '0')
-
-  timer.innerHTML = `${minutes}:${seconds}`
-}, 1000))
-
 const addTimerToTurnOrder = async (initiativeWindow) => {
   const timerWrapperElement = document.createElement('div')
   timerWrapperElement.setAttribute('class', 'roll20-made-easlier-timer-wrapper ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix')
@@ -41,7 +33,7 @@ const addTimerToTurnOrder = async (initiativeWindow) => {
   timerElement.setAttribute('id', 'ui-id-9')
   timerElement.setAttribute('class', `${TIMER_CLASS_STRING} ui-dialog-title`)
 
-  const timerTextNode = document.createTextNode('00:00')
+  const timerTextNode = document.createTextNode(`${TIMER_PREFIX}: Loading...`)
 
   timerElement.appendChild(timerTextNode)
   timerWrapperElement.appendChild(timerElement)
@@ -71,5 +63,12 @@ waitForSelector('.characterlist').then(characterList => {
   characterListObserver.observe(characterList, { childList: true })
 })
 
-// TODO: Add round number and in-game timer. E.g. "Round: 7 (1m 06s)"
-// TODO: Add in-game timer. E.g. "In-game time: 6 * (number of rounds)"
+waitForSelector(TIMER_CLASS).then(timer => setInterval(() => {
+  const now = new Date().getTime()
+  const timeElapsed = now - startTime
+
+  const minutes = String(Math.floor((timeElapsed % (1000 * 60 * 60)) / (1000 * 60)))
+  const seconds = String(Math.floor((timeElapsed % (1000 * 60)) / 1000)).padStart(2, '0')
+
+  timer.innerHTML = `${TIMER_PREFIX} ${minutes}:${seconds}`
+}, 1000))
