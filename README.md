@@ -3,7 +3,7 @@
 (Indev) General tools for roll 20, in one browser plugin
 
 
-# Functionalit
+# Functionality
 
 ## Working
 
